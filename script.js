@@ -1,12 +1,14 @@
+const somMoeda = new Audio("./assets/coin.mp3")
+
 function mostrarInput() {
   const botao = document.getElementById("botao")
   const input = document.getElementById("valor")
   const resultado = document.getElementById("resultado")
 
-  botao.style.display = "none" // esconde o botão
-  resultado.innerHTML = "" // limpa qualquer resultado anterior
-  input.style.display = "inline-block" // mostra o input
-  input.focus() // já posiciona o cursor no input
+  botao.style.display = "none"
+  resultado.innerHTML = ""
+  input.style.display = "inline-block"
+  input.focus()
 }
 
 function verificarEnter(event) {
@@ -20,21 +22,24 @@ function converter() {
   const botao = document.getElementById("botao")
   const resultado = document.getElementById("resultado")
 
-  const valorEmReais = parseFloat(input.value)
+  const valor = parseFloat(input.value)
 
-  if (isNaN(valorEmReais) || valorEmReais <= 0) {
+  if (isNaN(valor) || valor <= 0) {
     resultado.innerHTML = `<p style="color: red;">Digite um valor válido!</p>`
     return
   }
 
-  const taxaDeConversao = 975 // 1 real = 975 wons (exemplo)
-  const valorConvertido = valorEmReais * taxaDeConversao
+  const taxa = 930.27 // Trocar depois por valor em tempo real
+  const convertido = (valor * taxa).toFixed(2)
 
-  resultado.innerHTML = `<p>💰 R$${valorEmReais.toFixed(
+  resultado.innerHTML = `💰 R$${valor.toFixed(
     2
-  )} vale aproximadamente <strong>₩${valorConvertido.toFixed(0)}</strong></p>`
+  )} equivalem a <strong>₩${convertido}</strong>`
 
-  input.style.display = "none" // esconde o input
-  input.value = "" // limpa o campo
-  botao.style.display = "inline-block" // mostra novamente o botão
+  input.style.display = "none"
+  input.value = ""
+  botao.style.display = "inline-block"
+
+  // Toca o som
+  somMoeda.play()
 }
