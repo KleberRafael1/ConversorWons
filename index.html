@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+  <title>Conversor de Wons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">  
+</head>
+
+<body>
+  <img src="./assets/title.png" alt="Logo" class="logo">
+
+  <div class="container">
+    <div class="content fade-in">
+      <h2>Quem ganha, ganha em Wons!</h2>
+      <p>Que tal converter esse valor?</p>
+      
+      <button id="botao" onclick="mostrarInput()">Bora converter!</button>
+      
+      <input type="number" id="valor" placeholder="Digite o valor em reais" style="display: none;" onkeydown="verificarEnter(event)" />
+      
+      <div id="resultado"></div>
+    </div>
+  </div>
+
+  <footer><strong>Kleber Rafael - 2025</strong></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
